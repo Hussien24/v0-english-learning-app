@@ -1,0 +1,472 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+    --base-font-size: 16px;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+
+  /* تعريف الألوان للسمات المختلفة */
+  /*.theme-blue {
+    --primary: 221.2 83.2% 53.3%;
+    --ring: 221.2 83.2% 53.3%;
+  }*/
+  .theme-blue {
+    --primary: 221.2 83.2% 53.3%;
+    --ring: 221.2 83.2% 53.3%;
+  }
+
+  .theme-green {
+    --primary: 142.1 76.2% 36.3%;
+    --ring: 142.1 76.2% 36.3%;
+  }
+
+  .theme-purple {
+    --primary: 262.1 83.3% 57.8%;
+    --ring: 262.1 83.3% 57.8%;
+  }
+
+  .theme-orange {
+    --primary: 24.6 95% 53.1%;
+    --ring: 24.6 95% 53.1%;
+  }
+
+  .theme-red {
+    --primary: 0 72.2% 50.6%;
+    --ring: 0 72.2% 50.6%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-size: var(--base-font-size);
+    overflow-x: hidden;
+  }
+
+  /* تطبيق الخطوط المختلفة */
+  /*.font-cairo {
+    font-family: "Cairo", sans-serif;
+  }*/
+  .font-cairo {
+    font-family: "Cairo", sans-serif;
+  }
+
+  .font-tajawal {
+    font-family: "Tajawal", sans-serif;
+  }
+
+  .font-roboto {
+    font-family: "Roboto", sans-serif;
+  }
+}
+
+/* Custom styles for flashcard flipping */
+.perspective {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Enhanced animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Card hover effects */
+/*.card-hover {
+  transition: all 0.3s ease;
+}*/
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-style-gradient .card-hover:hover,
+.card-style-gradient.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--accent) / 0.3) 100%);
+}
+
+.card-style-solid .card-hover:hover,
+.card-style-solid.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  background-color: hsl(var(--primary) / 0.1);
+}
+
+.card-style-flat .card-hover:hover,
+.card-style-flat.card-hover:hover {
+  transform: translateY(-5px);
+  border-color: hsl(var(--primary) / 0.5);
+}
+
+/* Gradient backgrounds */
+.hero-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.7) 100%);
+}
+
+.card-gradient {
+  background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--accent) / 0.3) 100%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--secondary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Status indicators */
+.status-new {
+  @apply bg-blue-500 text-white;
+}
+
+.status-learning {
+  @apply bg-yellow-500 text-white;
+}
+
+.status-mastered {
+  @apply bg-green-500 text-white;
+}
+
+.status-review {
+  @apply bg-red-500 text-white;
+}
+
+/* Improved button styles */
+.btn-primary-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.8) 100%);
+  transition: all 0.3s ease;
+}
+
+.btn-primary-gradient:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Offline mode styles */
+.offline-indicator {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 50;
+  padding: 0.5rem 1rem;
+  background-color: hsl(var(--destructive));
+  color: hsl(var(--destructive-foreground));
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* تحسينات جديدة للواجهة */
+
+/* تأثيرات الزر */
+/*.btn-bounce {
+  transition: transform 0.2s ease;
+}*/
+.btn-bounce {
+  transition: transform 0.2s ease;
+}
+
+.btn-bounce:active {
+  transform: scale(0.95);
+}
+
+/* تأثيرات الحقول */
+.input-focus-effect {
+  transition: all 0.3s ease;
+}
+
+.input-focus-effect:focus {
+  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--primary) / 0.5);
+}
+
+/* تأثيرات القوائم */
+.menu-item-hover {
+  transition: all 0.2s ease;
+}
+
+.menu-item-hover:hover {
+  background-color: hsl(var(--primary) / 0.1);
+  transform: translateX(5px);
+}
+
+/* تحسينات الأداء */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* تأثيرات البطاقات الجديدة */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card-shine:hover::after {
+  opacity: 1;
+  animation: shine 1.5s ease forwards;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(30deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(30deg);
+  }
+}
+
+/* تأثيرات الشاشة الرئيسية */
+.hero-text-glow {
+  text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+}
+
+/* تحسينات الأزرار */
+.btn-glow {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.btn-glow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-100%);
+  z-index: -1;
+}
+
+.btn-glow:hover::after {
+  animation: btn-glow 1.5s infinite;
+}
+
+@keyframes btn-glow {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* تحسينات الشاشة الرئيسية */
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* تأثيرات الانتقال */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* تحسينات الأداء */
+.hardware-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* تحسينات الاستجابة */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* تأثيرات الشاشة الرئيسية */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-effect {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* أضف هذه الأنماط في نهاية الملف لتحسين عرض النص العربي */
+
+/* تحسينات النص العربي */
+.arabic-text {
+  font-family: var(--font-amiri), var(--font-noto-kufi), var(--font-tajawal), var(--font-cairo), sans-serif;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+.paragraph-arabic {
+  font-family: var(--font-amiri), var(--font-tajawal), sans-serif;
+  line-height: 2;
+  font-size: 1.1rem;
+  text-align: right;
+  direction: rtl;
+}
+
+/* تحسين عرض البطاقات التعليمية بالعربية */
+/*.flashcard-arabic {
+  font-family: var(--font-noto-kufi), var(--font-cairo), sans-serif;
+  font-weight: 500;
+}*/
+.flashcard-arabic {
+  font-family: var(--font-noto-kufi), var(--font-cairo), sans-serif;
+  font-weight: 500;
+}
+
+/* تحسين واجهة المستخدم للنص العربي */
+[dir="rtl"] .ui-text {
+  font-family: var(--font-noto-kufi), var(--font-cairo), sans-serif;
+  letter-spacing: 0;
+}
